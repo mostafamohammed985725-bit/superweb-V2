@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <title>SuperWeb | تسجيل الدخول</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="auth-box">
+  <h2>تسجيل الدخول</h2>
+
+  <input type="email" id="email" placeholder="البريد الإلكتروني">
+  <input type="password" id="password" placeholder="كلمة المرور">
+
+  <button onclick="loginEmail()">تسجيل الدخول</button>
+
+  <div class="divider">أو</div>
+
+  <button class="google" onclick="loginGoogle()">المتابعة مع Google</button>
+  <button class="facebook" onclick="loginFacebook()">المتابعة مع Facebook</button>
+</div>
+
+<!-- Firebase -->
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+
+<script src="script.js"></script>
+</body>
+</html>
