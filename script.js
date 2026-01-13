@@ -1,4 +1,4 @@
-// Firebase config (بدلها ببياناتك)
+// Firebase config (بدل القيم من Firebase)
 const firebaseConfig = {
   apiKey: "API_KEY",
   authDomain: "PROJECT_ID.firebaseapp.com",
@@ -8,30 +8,27 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 const auth = firebase.auth();
 
-// تسجيل دخول بالإيميل
+// تسجيل / دخول ايميل تلقائي
 function loginEmail() {
   const email = document.getElementById("email").value;
   const password = document.getElementById("password").value;
 
   auth.signInWithEmailAndPassword(email, password)
     .then(() => {
-      alert("تم تسجيل الدخول بنجاح");
-      window.location.href = "home.html";
+      alert("تم تسجيل الدخول");
     })
-    .catch(err => alert(err.message));
+    .catch(() => {
+      // اذا ما موجود يسوي حساب تلقائي
+      auth.createUserWithEmailAndPassword(email, password)
+        .then(() => alert("تم إنشاء حساب جديد"))
+        .catch(err => alert(err.message));
+    });
 }
 
-// Google
+// تسجيل دخول Google
 function loginGoogle() {
   const provider = new firebase.auth.GoogleAuthProvider();
   auth.signInWithPopup(provider)
-    .then(() => window.location.href = "home.html")
+    .then(() => alert("تم تسجيل الدخول Google"))
     .catch(err => alert(err.message));
 }
-
-// Facebook
-function loginFacebook() {
-  const provider = new firebase.auth.FacebookAuthProvider();
-  auth.signInWithPopup(provider)
-    .then(() => window.location.href = "home.html")
-    .catch(err => alert(err.message));
