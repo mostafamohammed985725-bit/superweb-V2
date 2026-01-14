@@ -1,30 +1,30 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>SuperWeb | تسجيل الدخول</title>
+  <title>SuperWeb – Publish Your Projects</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div class="auth-box">
-  <h2>تسجيل الدخول</h2>
+<header>
+  <h1>SuperWeb</h1>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="explore.html">Explore</a>
+    <a href="upload.html">Publish</a>
+  </nav>
+</header>
 
-  <input type="email" id="email" placeholder="البريد الإلكتروني">
-  <input type="password" id="password" placeholder="كلمة المرور">
+<section class="hero">
+  <h2>Publish Your Projects Globally</h2>
+  <p>Games • Apps • Websites</p>
+  <a class="btn" href="explore.html">Explore Projects</a>
+</section>
 
-  <button onclick="loginEmail()">تسجيل الدخول</button>
+<footer>
+  <p>© 2026 SuperWeb</p>
+</footer>
 
-  <div class="divider">أو</div>
-
-  <button class="google" onclick="loginGoogle()">المتابعة مع Google</button>
-  <button class="facebook" onclick="loginFacebook()">المتابعة مع Facebook</button>
-</div>
-
-<!-- Firebase -->
-<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
-
-<script src="script.js"></script>
 </body>
 </html>

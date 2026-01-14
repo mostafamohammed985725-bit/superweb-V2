@@ -1,34 +1,16 @@
-// Firebase config (بدل القيم من Firebase)
-const firebaseConfig = {
-  apiKey: "API_KEY",
-  authDomain: "PROJECT_ID.firebaseapp.com",
-  projectId: "PROJECT_ID"
-};
-
-firebase.initializeApp(firebaseConfig);
-const auth = firebase.auth();
-
-// تسجيل / دخول ايميل تلقائي
-function loginEmail() {
-  const email = document.getElementById("email").value;
-  const password = document.getElementById("password").value;
-
-  auth.signInWithEmailAndPassword(email, password)
-    .then(() => {
-      alert("تم تسجيل الدخول");
-    })
-    .catch(() => {
-      // اذا ما موجود يسوي حساب تلقائي
-      auth.createUserWithEmailAndPassword(email, password)
-        .then(() => alert("تم إنشاء حساب جديد"))
-        .catch(err => alert(err.message));
+fetch("data.json")
+  .then(res => res.json())
+  .then(data => {
+    const container = document.getElementById("projects");
+    data.forEach(project => {
+      const card = document.createElement("div");
+      card.className = "card";
+      card.innerHTML = `
+        <h3>${project.name}</h3>
+        <p>${project.type}</p>
+        <p>${project.description}</p>
+        <a href="${project.link}" target="_blank">Visit</a>
+      `;
+      container.appendChild(card);
     });
-}
-
-// تسجيل دخول Google
-function loginGoogle() {
-  const provider = new firebase.auth.GoogleAuthProvider();
-  auth.signInWithPopup(provider)
-    .then(() => alert("تم تسجيل الدخول Google"))
-    .catch(err => alert(err.message));
-}
+  });

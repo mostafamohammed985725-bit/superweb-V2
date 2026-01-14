@@ -1,0 +1,14 @@
+[
+  {
+    "name": "Pixel Runner",
+    "type": "Game",
+    "description": "Fast pixel speedrun game",
+    "link": "https://example.com"
+  },
+  {
+    "name": "Tasky",
+    "type": "App",
+    "description": "Simple task manager",
+    "link": "https://example.com"
+  }
+]
